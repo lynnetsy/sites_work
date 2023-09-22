@@ -1,0 +1,53 @@
+"""
+Site
+Please mind recursion when using devices
+"""
+type Site{
+    site_key: Key
+    name: String
+    latitud: Float
+    longitud: Float
+    address: String
+    zip_code: String
+    country: String
+    state: String
+    municipality: String
+    city: String
+    devices: [Device!]
+}
+
+"""
+Site edge
+"""
+type SiteEdge{
+    cursor: Key!
+    node: Site!
+}
+
+"""
+Site result
+"""
+type SiteResult implements Result{
+    success: Boolean!
+    errors: [String!]
+    edge: SiteEdge
+}
+
+"""
+Sites result
+"""
+type SitesResult implements Result{
+    success: Boolean!
+    errors: [String!]
+    total_count: Int
+    page_info: PageInfo
+    edges: [SiteEdge!]
+}
+
+"""
+Delete site result
+"""
+type DelSiteResult implements Result{
+    success: Boolean!
+    errors: [String!]
+}
